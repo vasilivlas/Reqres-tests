@@ -45,8 +45,8 @@ public class ReqresTests {
         response.prettyPrint();
         String actualName = response.jsonPath().getString("name");
         String actualJob = response.jsonPath().getString("job");
-        Assertions.assertEquals("neo", actualName, "CREATING ERROR");
-        Assertions.assertEquals("savior", actualJob, "CREATING ERROR");
+        Assertions.assertEquals("neo", actualName, "CREATION ERROR");
+        Assertions.assertEquals("savior", actualJob, "CREATION ERROR");
 
 
         int userId = response.jsonPath().getInt("id");
