@@ -21,7 +21,7 @@ public class ReqresTests {
                 .statusCode(200);
 
         int statusCode = response.extract().statusCode();
-        Assertions.assertEquals(200, statusCode);
+        Assertions.assertEquals(200, statusCode, "STATUS CODE ERROR");
 
         System.out.println("Response: " + "\n" + response.extract().asPrettyString());
         System.out.println("Status code: " + response.extract().statusCode());
@@ -45,8 +45,8 @@ public class ReqresTests {
         response.prettyPrint();
         String actualName = response.jsonPath().getString("name");
         String actualJob = response.jsonPath().getString("job");
-        Assertions.assertEquals("neo", actualName);
-        Assertions.assertEquals("savior", actualJob);
+        Assertions.assertEquals("neo", actualName, "CREATING ERROR");
+        Assertions.assertEquals("savior", actualJob, "CREATING ERROR");
 
 
         int userId = response.jsonPath().getInt("id");
@@ -74,7 +74,7 @@ public class ReqresTests {
         targetResponse.prettyPrint();
 
         String actualJob = targetResponse.jsonPath().getString("job");
-        Assertions.assertEquals("ordinary man", actualJob);
+        Assertions.assertEquals("ordinary man", actualJob, "UPDATING FAILED");
 
 
     }
@@ -96,7 +96,7 @@ public class ReqresTests {
 
         int statusCodeValue = response.statusCode();
 
-        Assertions.assertEquals(204, statusCodeValue);
+        Assertions.assertEquals(204, statusCodeValue, "DELETING FAILED");
         System.out.println("Status code: " + response.statusCode());
     }
 
@@ -117,7 +117,7 @@ public class ReqresTests {
         response.prettyPrint();
 
         int statusCodeValue = response.statusCode();
-        Assertions.assertEquals(400, statusCodeValue);
+        Assertions.assertEquals(400, statusCodeValue, "STATUS CODE ERROR");
 
         System.out.println();
         System.out.println("Status code: " + statusCodeValue);
